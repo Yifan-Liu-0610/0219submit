@@ -1,0 +1,258 @@
+/* 基础布局优化 */
+body {
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 64rem;
+  width: 100%;
+}
+
+/* 头部导航 */
+header {
+  border-bottom: 1px solid #aaa;
+  padding: 1rem 0;
+}
+
+/* 导航栏标题 */
+a.nav-title,
+a.nav-title:visited {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  line-height: 2rem;
+}
+
+/* 介绍文本 */
+section#about {
+  padding-bottom: 1rem;
+}
+
+#about p {
+  font-family: 'Raleway', serif;
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+#about a,
+#about a:visited {
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ff8800;
+}
+
+/* 项目标题 */
+#projects h2 {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* 地图样式优化 */
+#map {
+  width: 100%;
+  min-height: 600px; /* 增加最小高度，避免过小 */
+  height: 800px;
+  margin: 1em auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* 图片样式优化 */
+.assignment-PIC {
+  width: 100%;
+  max-width: 420px;
+  max-height: 315px; /* 避免图片拉伸 */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 项目描述 */
+.project-title,
+.assignment-description {
+  font-family: 'Raleway', serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 3rem;
+}
+
+/* 网格布局 */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: left;
+}
+
+/* 图层切换菜单 */
+#menu {
+  background: #fff;
+  position: absolute;
+  z-index: 10;
+  bottom: 20px; /* 调整距离底部的位置 */
+  right: 3em;
+  border-radius: 3px;
+  width: 140px; /* 增加宽度 */
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#menu a {
+  font-size: 13px;
+  color: #404040;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+#menu a:last-child {
+  border: none;
+}
+
+#menu a:hover {
+  background-color: #f8f8f8;
+  color: #000000;
+}
+
+#menu a.active {
+  background-color: #404040;
+  color: #ffffff;
+}
+
+#menu a.active:hover {
+  background: #000000;
+}
+
+/* 标题和图例 */
+#title {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  max-width: 30%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#title h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#title p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+/* 图例容器 */
+.legend-container {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 站点数据图例 */
+.legend2 {
+  font-size: 1em;
+  padding: 0.5em 1em;
+}
+
+.legend2 h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.legend2 div span {
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin-right: 5px;
+}
+
+/* 收入数据图例 */
+.legend {
+  font-size: 1em;
+  padding: 0.5em 1em;
+}
+
+.legend h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.legend div span {
+  border-radius: 5px;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin-right: 5px;
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 0.5rem;
+  }
+
+  #title {
+    max-width: 80%;
+    left: 10%;
+    top: 5%;
+    padding: 0.8rem;
+  }
+
+  #map {
+    min-height: 500px;
+  }
+
+  #menu {
+    width: 120px;
+    right: 1em;
+    bottom: 10px;
+  }
+
+  .legend-container {
+    left: 5px;
+    bottom: 10px;
+  }
+}
+
+#legend {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+#legend div {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+#legend span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 50%;
+  border: 1px solid #333;
+}
