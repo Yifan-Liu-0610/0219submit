@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Juan Francisco Saldarriaga" />
+    <meta name="keywords" content="mapping, storytelling, urban design, new york" />
+    <title>Assignment 1 - Web Map</title>
+
+    <!-- 引入 CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- 引入 Mapbox 和 Google Fonts -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- 顶部导航 -->
+    <header>
+      <a class="nav-title" href="../index.html">Yifan Liu</a>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+      <div class="assignment">
+        <p class="project-title">Assignment 3C - Mapbox Projection-Equiretangular</p>
+        <p class="assignment-description">
+          This is an interactive map where you can zoom in or out. Start from Iron Traingle.
+        </p>
+
+        <!-- 地图容器 -->
+        <div id="map"></div>
+      </div>
+    </main>
+
+    <!-- 树木健康状态图例 -->
+    <div id="legend">
+        <h4>Tree Health Status</h4>
+        <div><span style="background-color: #00ff4c;"></span> Good (健康)</div>
+        <div><span style="background-color: #eeff00;"></span> Fair (一般)</div>
+        <div><span style="background-color: #e01a00;"></span> Poor (不健康)</div>
+        <div><span style="background-color: #050505;"></span> Unknown (未知)</div>
+    </div>
+
+    <!-- 加载 JavaScript -->
+    <script src="./map.js"></script>
+  </body>
+</html>
