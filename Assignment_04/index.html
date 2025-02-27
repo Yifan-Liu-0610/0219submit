@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Juan Francisco Saldarriaga" />
-    <meta name="keywords" content="mapping, storytelling, urban design, new york" />
-    <title>Assignment 1 - Web Map</title>
+    <meta name="keywords" content="mapping, storytelling, urban design, unemployment, usa" />
+    <title>Assignment - US Unemployment Map</title>
 
     <!-- 引入 CSS -->
     <link rel="stylesheet" href="../style.css" />
@@ -22,49 +22,49 @@
   <body>
     <!-- 顶部导航 -->
     <header>
-      <a class="nav-title" href="../index.html">Yifan Liu</a>
+      <a class="nav-title" href="../index.html">Assignment04 US Unemployment Map</a>
     </header>
 
     <!-- 主要内容 -->
     <main>
       <div class="assignment">
-        <p class="project-title">Assignment 2 - Mapbox Base Maps Attempt for Studio</p>
+        <p class="project-title">US Unemployment Rates</p>
         <p class="assignment-description">
-          This is an interactive map where you can zoom in or out. Start from Iron Traingle.
-         
+          As a broad issue around the world, I research something about employment in the US. This is an interactive map where you can zoom in or out to see unemployment rates across the US.
+          States are shown when zoomed out, counties appear when zoomed in.
         </p>
 
-        <!-- 地图容器 -->
-        <div id="map"></div>
+        <!-- 地图框 -->
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
       </div>
     </main>
 
-   
-        <!-- 地铁站数据图例 -->
-        <div id="turnstile-legend" class="legend2">
-            <h4>Drop in Ridership</h4>
-            <p><em>Click on stations for detailed turnstile usage</em></p>
-            <div><span style="background-color: #fef0d3"></span>&#8594;
-              <span style="background-color: #ff4400; height:20px; width:20px"></span> 
-              < 50% decrease to > 90% decrease
-            </div>
-        </div>
+    <!-- 州级失业率图例 -->
+    <div id="state-legend" class="legend">
+      <h4>State Unemployment Rate (%)</h4>
+      <div><span style="background-color: #084081"></span> 10%+</div>
+      <div><span style="background-color: #0868ac"></span> 8%</div>
+      <div><span style="background-color: #43a2ca"></span> 6%</div>
+      <div><span style="background-color: #7bccc4"></span> 4%</div>
+      <div><span style="background-color: #bae4bc"></span> 2%</div>
+      <div><span style="background-color: #f0f9e8"></span> 0%</div>
+    </div>
 
-        <!-- 收入数据图例 -->
-        <div id="income-legend" class="legend">
-            <h4>Median Household Income</h4>
-            <div><span style="background-color: #00a2ca"></span>$150,000 +</div>
-            <div><span style="background-color: #33b5d5"></span>$100,000 - $150,000</div>
-            <div><span style="background-color: #66c7e0"></span>$75,000 - $100,000</div>
-            <div><span style="background-color: #99daea"></span>$50,000 - $75,000</div>
-            <div><span style="background-color: #ccedf5"></span>$20,000 - $50,000</div>
-            <div><span style="background-color: #ffffff"></span>Less than $20,000</div>
-        </div>
-      </div>
+    <!-- 县级失业率图例 -->
+    <div id="county-legend" class="legend" style="display: none">
+      <h4>County Unemployment Rate (%)</h4>
+      <div><span style="background-color: #08519c"></span> 12%+</div>
+      <div><span style="background-color: #3182bd"></span> 10%</div>
+      <div><span style="background-color: #6baed6"></span> 8%</div>
+      <div><span style="background-color: #9ecae1"></span> 6%</div>
+      <div><span style="background-color: #c6dbef"></span> 4%</div>
+      <div><span style="background-color: #deebf7"></span> 2%</div>
+      <div><span style="background-color: #f7fcfd"></span> 0%</div>
     </div>
 
     <!-- 加载 JavaScript -->
     <script src="./map.js"></script>
-
   </body>
 </html>
