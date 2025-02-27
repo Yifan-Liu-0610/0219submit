@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Juan Francisco Saldarriaga" />
+    <meta name="keywords" content="mapping, storytelling, urban design, unemployment, usa" />
+    <title>Assignment - US Unemployment Map</title>
+
+    <!-- 引入 CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- 引入 Mapbox 和 Google Fonts -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- 顶部导航 -->
+    <header>
+      <a class="nav-title" href="../index.html">Assignment04 US Unemployment Map</a>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+      <div class="assignment">
+        <p class="project-title">US Unemployment Rates</p>
+        <p class="assignment-description">
+          As a broad issue around the world, I research something about employment in the US. This is an interactive map where you can zoom in or out to see unemployment rates across the US.
+          States are shown when zoomed out, counties appear when zoomed in.
+        </p>
+
+        <!-- 地图框 -->
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 州级失业率图例 -->
+    <div id="state-legend" class="legend">
+      <h4>State Unemployment Rate (%)</h4>
+      <div><span style="background-color: #084081"></span> 10%+</div>
+      <div><span style="background-color: #0868ac"></span> 8%</div>
+      <div><span style="background-color: #43a2ca"></span> 6%</div>
+      <div><span style="background-color: #7bccc4"></span> 4%</div>
+      <div><span style="background-color: #bae4bc"></span> 2%</div>
+      <div><span style="background-color: #f0f9e8"></span> 0%</div>
+    </div>
+
+    <!-- 县级失业率图例 -->
+    <div id="county-legend" class="legend" style="display: none">
+      <h4>County Unemployment Rate (%)</h4>
+      <div><span style="background-color: #08519c"></span> 12%+</div>
+      <div><span style="background-color: #3182bd"></span> 10%</div>
+      <div><span style="background-color: #6baed6"></span> 8%</div>
+      <div><span style="background-color: #9ecae1"></span> 6%</div>
+      <div><span style="background-color: #c6dbef"></span> 4%</div>
+      <div><span style="background-color: #deebf7"></span> 2%</div>
+      <div><span style="background-color: #f7fcfd"></span> 0%</div>
+    </div>
+
+    <!-- 加载 JavaScript -->
+    <script src="./map.js"></script>
+  </body>
+</html>
 
