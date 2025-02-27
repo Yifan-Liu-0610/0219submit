@@ -1,130 +1,84 @@
-mapboxgl.accessToken = "pk.eyJ1IjoiaXdhbml3YW5saXUiLCJhIjoiY202ampscGt2MDFsMjJqb2o2cGJjeW04OCJ9.xNgm_C4PfUixfEfQKSCbHA";
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXdhbml3YW5saXUiLCJhIjoiY202ampscGt2MDFsMjJqb2o2cGJjeW04OCJ9.xNgm_C4PfUixfEfQKSCbHA';
 
 const map = new mapboxgl.Map({
-    container: "map",
-    style: "mapbox://styles/iwaniwanliu/cm72nxsds009501s893og40ay",
-    zoom: 13,
-    center: [-73.845, 40.754],
-    maxZoom: 15,
-    minZoom: 12,
-    maxBounds: [[-74.45, 40.45], [-73.55, 41]]
+    container: 'map', 
+    style: 'mapbox://styles/mapbox/light-v11', // 你的 Mapbox Studio 自定义样式
+    center: [-98, 38.88], 
+    zoom: 3,
+    minZoom: 2
 });
 
-map.on('load', function () {
-    let layers = map.getStyle().layers;
-    let firstSymbolId, landuseLayerId, waterLayerId;
+const zoomThreshold = 4; // 设定 zoom 级别阈值
 
-    // 找出 landuse、water 和 symbol 层的 ID
-    for (let i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && !firstSymbolId) {
-            firstSymbolId = layers[i].id;
-        }
-        if (layers[i].id.includes('landuse')) {
-            landuseLayerId = layers[i].id;
-        }
-        if (layers[i].id.includes('water') && !waterLayerId) {
-            waterLayerId = layers[i].id;
-        }
-    }
+map.on('load', () => {
+    // **州级失业率数据源**
+    map.addSource('state-unemployment', {
+        'type': 'geojson',
+        'data': 'us-state-unemployment.geojson' // 确保这个文件能被正确加载
+    });
 
-    console.log("Landuse Layer:", landuseLayerId);
-    console.log("Water Layer:", waterLayerId);
-    console.log("First Symbol Layer:", firstSymbolId);
+    // **县级失业率数据源**
+    map.addSource('county-unemployment', {
+        'type': 'geojson',
+        'data': 'us-county-unemployment.geojson' // 确保这个文件能被正确加载
+    });
 
-    // 添加收入数据图层，放置在 landuse 和 water 之间
-    if (landuseLayerId && waterLayerId) {
-        map.addLayer({
-            'id': 'Household Income Data',
-            'type': 'fill',
-            'source': {
-                'type': 'geojson',
-                'data': 'data/medianIncome.geojson'
-            },
-            'paint': {
-                'fill-color': ['step', ['get', 'MHHI'],
-                    '#ffffff',
-                    20000, '#ccedf5',
-                    50000, '#99daea',
-                    75000, '#66c7e0',
-                    100000, '#33b5d5',
-                    150000, '#00a2ca'
-                ],
-                'fill-opacity': ['case', ['==', ['get', 'MHHI'], null], 0, 0.65]
-            }
-        }, waterLayerId);
-    }
-
-    // 添加公交站点图层
+    // **州级失业率图层**
     map.addLayer({
-        'id': 'Bus Stops',
-        'type': 'circle',
-        'source': {
-            'type': 'geojson',
-            'data': './data/nyct2020.geojson'  // 🚨 确保路径正确
-        },
+        'id': 'state-unemployment-layer',
+        'source': 'state-unemployment',
+        'maxzoom': zoomThreshold,
+        'type': 'fill',
         'paint': {
-            'circle-color': '#ff0000',  // 🔴 红色
-            'circle-radius': 5,  // 圆点大小
-            'circle-stroke-width': 1,  // 圆点边框
-            'circle-stroke-color': '#ffffff'  // 白色边框
+            'fill-color': [
+                'interpolate',
+                ['linear'],
+                ['get', 'Unemployment Rate'],
+                0, '#f0f9e8',   // 失业率最低 - 浅绿
+                2, '#bae4bc',
+                4, '#7bccc4',
+                6, '#43a2ca',
+                8, '#0868ac',
+                10, '#084081'    // 失业率最高 - 深蓝
+            ],
+            'fill-opacity': 0.75
+        }
+    });
+
+    // **县级失业率图层**
+    map.addLayer({
+        'id': 'county-unemployment-layer',
+        'source': 'county-unemployment',
+        'minzoom': zoomThreshold,
+        'type': 'fill',
+        'paint': {
+            'fill-color': [
+                'interpolate',
+                ['linear'],
+                ['get', 'Unemployment Rate'],
+                0, '#f7fcfd',   // 失业率最低 - 浅蓝
+                2, '#deebf7',
+                4, '#c6dbef',
+                6, '#9ecae1',
+                8, '#6baed6',
+                10, '#3182bd',
+                12, '#08519c'   // 失业率最高 - 深蓝
+            ],
+            'fill-opacity': 0.75
         }
     });
 });
 
-// 创建弹出窗口
-map.on('click', 'MTA Station Data', function (e) {
-    let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
-    let entries_06 = e.features[0].properties.ENTRIES_06;
-    let entries_20 = e.features[0].properties.ENTRIES_20;
-    let stationName = e.features[0].properties.stationName;
-    new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(`<h4>${stationName}</h4>
-            <p><b>Friday, March 6th:</b> ${entries_06} entries<br>
-            <b>Friday, March 20th:</b> ${entries_20} entries<br>
-            <b>Change:</b> ${Math.round(entriesDiff * 1000) / 10}%</p>`)
-        .addTo(map);
-});
+// 处理图例切换
+const stateLegendEl = document.getElementById('state-legend');
+const countyLegendEl = document.getElementById('county-legend');
 
-// 鼠标进入、离开时改变光标
-map.on('mouseenter', 'MTA Station Data', function () {
-    map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'MTA Station Data', function () {
-    map.getCanvas().style.cursor = '';
-});
-
-// 添加图层切换菜单
-var toggleableLayerIds = ['MTA Station Data', 'Household Income Data'];
-
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-    var id = toggleableLayerIds[i];
-
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'active';
-    link.textContent = id;
-
-    link.onclick = function (e) {
-        var clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
-
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-        if (visibility === 'visible') {
-            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-            this.className = '';
-        } else {
-            this.className = 'active';
-            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-        }
-    };
-
-    var menu = document.getElementById('menu');
-    if (menu) {
-        menu.appendChild(link);
+map.on('zoom', () => {
+    if (map.getZoom() > zoomThreshold) {
+        stateLegendEl.style.display = 'none';
+        countyLegendEl.style.display = 'block';
     } else {
-        console.error("Menu div not found!");
+        stateLegendEl.style.display = 'block';
+        countyLegendEl.style.display = 'none';
     }
-}
+});
