@@ -5,25 +5,30 @@ const map = new mapboxgl.Map({
     style: "mapbox://styles/iwaniwanliu/cm72nxsds009501s893og40ay",
     zoom: 13,
     center: [-73.845, 40.754],
-    maxZoom: 15,
-    minZoom: 12,
+    maxZoom: 18, // 允许更大缩放
+    minZoom: 10, // 允许更小缩放
     maxBounds: [[-74.45, 40.45], [-73.55, 41]]
+});
+
+// 捕捉地图错误
+map.on('error', function (e) {
+    console.error('Map error:', e);
 });
 
 map.on('load', function () {
     let layers = map.getStyle().layers;
     let firstSymbolId, landuseLayerId, waterLayerId;
 
-    // 找出 landuse、water 和 symbol 层的 ID
-    for (let i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && !firstSymbolId) {
-            firstSymbolId = layers[i].id;
+    // 获取层的 ID
+    for (let layer of layers) {
+        if (layer.type === 'symbol' && !firstSymbolId) {
+            firstSymbolId = layer.id;
         }
-        if (layers[i].id.includes('landuse')) {
-            landuseLayerId = layers[i].id;
+        if (layer.id.includes('landuse')) {
+            landuseLayerId = layer.id;
         }
-        if (layers[i].id.includes('water') && !waterLayerId) {
-            waterLayerId = layers[i].id;
+        if (layer.id.includes('water') && !waterLayerId) {
+            waterLayerId = layer.id;
         }
     }
 
@@ -31,19 +36,19 @@ map.on('load', function () {
     console.log("Water Layer:", waterLayerId);
     console.log("First Symbol Layer:", firstSymbolId);
 
-    // 添加收入数据图层，放置在 landuse 和 water 之间
+    // 添加收入数据图层（Household Income Data）
     if (landuseLayerId && waterLayerId) {
         map.addLayer({
             'id': 'Household Income Data',
             'type': 'fill',
             'source': {
                 'type': 'geojson',
-                'data': 'data/medianIncome.geojson'
+                'data': 'data/medianIncome.geojson' // 🚨 确保路径正确
             },
             'paint': {
-                'fill-color': ['step', ['get', 'MHHI'],
-                    '#ffffff',
-                    20000, '#ccedf5',
+                'fill-color': [
+                    'step', ['get', 'MHHI'],
+                    '#ffffff', 20000, '#ccedf5',
                     50000, '#99daea',
                     75000, '#66c7e0',
                     100000, '#33b5d5',
@@ -52,9 +57,28 @@ map.on('load', function () {
                 'fill-opacity': ['case', ['==', ['get', 'MHHI'], null], 0, 0.65]
             }
         }, waterLayerId);
+    } else {
+        console.error("❌ Household Income Data 未成功加载");
     }
 
-    // 添加公交站点图层
+    // 让收入图层可点击
+    map.on('click', 'Household Income Data', function (e) {
+        let income = e.features[0].properties.MHHI;
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`<h4>Median Household Income</h4><p>$${income}</p>`)
+            .addTo(map);
+    });
+
+    map.on('mouseenter', 'Household Income Data', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'Household Income Data', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    // 添加公交站点图层（Bus Stops）
     map.addLayer({
         'id': 'Bus Stops',
         'type': 'circle',
@@ -63,68 +87,104 @@ map.on('load', function () {
             'data': './data/nyct2020.geojson'  // 🚨 确保路径正确
         },
         'paint': {
-            'circle-color': '#ff0000',  // 🔴 红色
-            'circle-radius': 5,  // 圆点大小
-            'circle-stroke-width': 1,  // 圆点边框
-            'circle-stroke-color': '#ffffff'  // 白色边框
+            'circle-color': '#ff0000',
+            'circle-radius': 5,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#ffffff'
         }
     });
-});
 
-// 创建弹出窗口
-map.on('click', 'MTA Station Data', function (e) {
-    let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
-    let entries_06 = e.features[0].properties.ENTRIES_06;
-    let entries_20 = e.features[0].properties.ENTRIES_20;
-    let stationName = e.features[0].properties.stationName;
-    new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(`<h4>${stationName}</h4>
-            <p><b>Friday, March 6th:</b> ${entries_06} entries<br>
-            <b>Friday, March 20th:</b> ${entries_20} entries<br>
-            <b>Change:</b> ${Math.round(entriesDiff * 1000) / 10}%</p>`)
-        .addTo(map);
-});
+    // 让公交站点图层可点击
+    map.on('click', 'Bus Stops', function (e) {
+        let stopName = e.features[0].properties.stop_name;
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`<h4>Bus Stop</h4><p>${stopName}</p>`)
+            .addTo(map);
+    });
 
-// 鼠标进入、离开时改变光标
-map.on('mouseenter', 'MTA Station Data', function () {
-    map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'MTA Station Data', function () {
-    map.getCanvas().style.cursor = '';
-});
+    map.on('mouseenter', 'Bus Stops', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
 
-// 添加图层切换菜单
-var toggleableLayerIds = ['MTA Station Data', 'Household Income Data'];
+    map.on('mouseleave', 'Bus Stops', function () {
+        map.getCanvas().style.cursor = '';
+    });
 
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-    var id = toggleableLayerIds[i];
-
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'active';
-    link.textContent = id;
-
-    link.onclick = function (e) {
-        var clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
-
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-        if (visibility === 'visible') {
-            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-            this.className = '';
-        } else {
-            this.className = 'active';
-            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+    // 添加圈圈图层（Turnstile Data）
+    map.addLayer({
+        'id': 'turnstileData',
+        'type': 'circle',
+        'source': {
+            'type': 'geojson',
+            'data': 'data/turnstileData.geojson'  // 🚨 确保路径正确
+        },
+        'paint': {
+            'circle-color': ['interpolate', ['linear'], ['get', 'ENTRIES_DIFF'],
+                -1, '#ff4400',
+                -0.7, '#ffba31',
+                -0.4, '#ffffff'
+            ],
+            'circle-stroke-color': '#4d4d4d',
+            'circle-stroke-width': 0.5,
+            'circle-radius': ['interpolate', ['linear'], ['get', 'ENTRIES_DIFF'],
+                -1, 10,
+                -0.4, 1
+            ]
         }
-    };
+    }, firstSymbolId);
 
-    var menu = document.getElementById('menu');
-    if (menu) {
-        menu.appendChild(link);
-    } else {
-        console.error("Menu div not found!");
+    // 让圈圈图层可点击
+    map.on('click', 'turnstileData', function (e) {
+        let entriesDiff = e.features[0].properties.ENTRIES_DIFF;
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`<h4>Turnstile Data</h4><p>Entries Change: ${Math.round(entriesDiff * 1000) / 10}%</p>`)
+            .addTo(map);
+    });
+
+    map.on('mouseenter', 'turnstileData', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'turnstileData', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    // 添加图层切换菜单
+    var toggleableLayerIds = ['MTA Station Data', 'Household Income Data', 'Bus Stops', 'turnstileData'];
+
+    for (var id of toggleableLayerIds) {
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.textContent = id;
+
+        link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (map.getLayer(clickedLayer)) {
+                var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+                if (visibility === 'visible') {
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                    this.className = '';
+                } else {
+                    this.className = 'active';
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+                }
+            } else {
+                console.error(`❌ 图层 ${clickedLayer} 不存在`);
+            }
+        };
+
+        var menu = document.getElementById('menu');
+        if (menu) {
+            menu.appendChild(link);
+        } else {
+            console.error("❌ Menu div not found!");
+        }
     }
-}
+});
