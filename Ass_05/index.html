@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Yifan Liu" />
+  <title>Assignment - Water Quality Charts</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a class="nav-title" href="../index.html">Yifan Liu</a>
+  </header>
+
+  <main>
+    <div class="assignment">
+      <p class="project-title">Assignment 05 - Drinking Water Quality Visualization</p>
+      <p class="assignment-description">
+        This page presents five charts generated from a New York City open dataset on drinking water quality. The charts explore different types of visualization and reveal patterns across time, geography, and chemical parameters.
+      </p>
+    </div>
+  
+    <!-- Chart 1 -->
+    <div class="chart-section">
+      <h2>Chart 1: Monthly Water Sample Counts (2015–2024)</h2>
+      <img src="./1.png" alt="Monthly Sample Counts" class="chart-img" />
+      <p>
+        This line chart shows the number of water quality samples collected per month over nearly a decade. While overall testing remains consistent, dips in 2020 may reflect pandemic-related disruptions.
+      </p>
+    </div>
+  
+    <!-- Chart 2 -->
+    <div class="chart-section">
+      <h2>Chart 2: Turbidity (NTU) Distribution</h2>
+      <img src="./2.png" alt="Turbidity Boxplot" class="chart-img" />
+      <p>
+        This boxplot visualizes the distribution of turbidity, an indicator of water clarity. The majority of samples fall within safe limits, though several high outliers suggest rare instances of murkier water.
+      </p>
+    </div>
+  
+    <!-- Chart 3 -->
+    <div class="chart-section">
+      <h2>Chart 3: Sample Class Breakdown</h2>
+      <img src="./3.png" alt="Sample Class Distribution" class="chart-img" />
+      <p>
+        This bar chart displays the types of water samples collected. Most fall under compliance and operational categories, while resample types are relatively rare, indicating limited follow-up testing.
+      </p>
+    </div>
+  
+    <!-- Chart 4 -->
+    <div class="chart-section">
+      <h2>Chart 4: E.coli Concentration Distribution</h2>
+      <img src="./4.png" alt="E.coli Histogram" class="chart-img" />
+      <p>
+        This histogram shows E.coli levels in the samples. Nearly all values are at or near zero, reflecting excellent microbial safety, though a few readings may be data entry errors or true outliers.
+      </p>
+    </div>
+  
+    <!-- Chart 5 -->
+    <div class="chart-section">
+      <h2>Chart 5: Residual Chlorine Detection Rate</h2>
+      <img src="./5.png" alt="Chlorine Detection Pie Chart" class="chart-img" />
+      <p>
+        This pie chart highlights that nearly 100% of water samples contained detectable levels of residual chlorine, confirming effective disinfection throughout the distribution system.
+      </p>
+    </div>
+  
+    <!-- Colab Link -->
+    <div class="colab-link">
+      <h3>🔗 Google Colab Notebook</h3>
+      <p>
+        View the full code and data processing steps here:
+        <a href="https://colab.research.google.com/drive/1M7QMJkrLpfurhM4JfEkGO3wuOt3ndtxm?usp=sharing" target="_blank">My Google Colab Notebook</a>
+      </p>
+    </div>
+  </main>
+  
