@@ -1,25 +1,28 @@
-let topTitleDiv = "<h4>Threads | Storytelling with Maps</h4>";
+let topTitleDiv = "<p class='top-title'></p>";
 
 let titleDiv =
-  "<h1>The Geographical Distribution of Subway Usage Decrease Due to COVID-19</h1>";
+  "<h1>The Toxic Legacy of Willets Point</h1>";
 
-let bylineDiv = "<p>By Juan Francisco Saldarriaga</p>";
+let subtitleDiv =
+  "<h2>Can NYC's Last Frontier Be Made Safe for Its Future Residents?</h2>";
 
-let descriptionDiv =
-  '<p>This tutorial demonstrates how to use <a href="https://github.com/mapbox/storytelling">Mapbox Storytelling</a> with our previous web mapping example. Here we will use Mapbox storytelling template to first, give an overview of the decrease in subway usage around the city, and second, zoom into three different locations that exemplify the diversity of conditions around New York.</p>' +
-  '<p>We will use the <a href="https://pointsunknown.nyc/web%20mapping/mapbox/2020/03/25/10_WebmappingTurnstileData.html">previous web map displaying MTA turnstile data</a> as the basis for our story. In this process we will use Mapbox GL JS, as well as Intersection Observer and Scrollama as our main JavaScript libraries.</p>' +
-  "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In harum natus eos cum rem iure aperiam omnis distinctio illo quis, sunt nesciunt sint impedit deleniti dolor saepe necessitatibus eligendi aut?</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In harum natus eos cum rem iure aperiam omnis distinctio illo quis, sunt nesciunt sint impedit deleniti dolor saepe necessitatibus eligendi aut?</p>" +
-  '<p style="text-align:center">Scroll to continue<br>▼</p>';
+let bylineDiv = "<p class='byline'>Xiaofan Zhu & Yifan Liu</p>";
+
+let scrollHintDiv =
+  '<div class="scroll-hint">Scroll to continue<br>▼</div>';
+
+let descriptionDiv = subtitleDiv + scrollHintDiv;
 
 let footerDiv =
   '<p>This story is based on data by the <a href="http://web.mta.info/developers/turnstile.html">Metropolitan Transit Authority</a> and reporting by the <a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">New York Times</a>, <a href="https://ny.curbed.com/2020/3/24/21192454/coronavirus-nyc-transportation-subway-citi-bike-covid-19">Curbed</a>, and <a href="https://thecity.nyc/2020/03/subway-ridership-plunge-deepest-at-big-manhattan-stations.html">The City</a>.</p>' +
   '<p><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> | <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a></p>';
 
 let divChapter1 =
-  "<h3>Subway Ridership Plummets</h3>" +
+  "<h3>Background of Willets Point</h3>" +
   '<img src="images/Chapter_1_Image.jpg">' +
   '<p class="imageCredit"><a href="http://www.metouhey.com/">Max Touhey</a></p>' +
-  "<p>All around the city subway ridership plummeted during the first two weeks of the Covid-19 outbreak. On average, stations saw a decrease of more than 50% in entries and exits between March 6th and March 20th, 2020. But as this map shows, the drop in ridership did not happen uniformly throughout the city.</p>";
+  "<p>Willets Point, a neglected stretch of land wedged between Citi Field and Flushing, has long been an industrial wasteland.</p>";
+
 
 let divChapter2 =
   "<h3>Forced to work and take the subway</h3>" +
@@ -67,10 +70,11 @@ var config = {
   use3dTerrain: false, //set true for enabling 3D maps.
   auto: false,
   topTitle: topTitleDiv,
-  title: titleDiv,
+  title: titleDiv + subtitleDiv,
   subtitle: "",
   byline: bylineDiv,
-  description: descriptionDiv,
+  description: scrollHintDiv,
+
   footer: footerDiv,
   chapters: [
     {
@@ -89,6 +93,21 @@ var config = {
       callback: "",
       onChapterEnter: [],
       onChapterExit: [],
+      onChapterEnter: [
+        {
+          layer: "willetsPointMarker",
+          opacity: 1,
+          duration: 500,
+        },
+      ],
+      onChapterExit: [
+        {
+          layer: "willetsPointMarker",
+          opacity: 0,
+          duration: 500,
+        },
+      ],
+      
     },
     {
       id: "incomeUnderlay",

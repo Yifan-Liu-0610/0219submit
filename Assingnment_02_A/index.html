@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Juan Francisco Saldarriaga" />
     <meta name="keywords" content="mapping, storytelling, urban design, new york" />
-    <title>Assignment 1 - Web Map</title>
+    <title>Assignment 2 - Web Map</title>
 
     <!-- 引入 CSS -->
     <link rel="stylesheet" href="../style.css" />
@@ -15,8 +15,8 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet" />
   </head>
 
   <body>
@@ -30,8 +30,7 @@
       <div class="assignment">
         <p class="project-title">Assignment 2 - Mapbox Base Maps Attempt for Studio</p>
         <p class="assignment-description">
-          This is an interactive map where you can zoom in or out. Start from Iron Traingle.
-         
+          This is an interactive map where you can zoom in or out. Start from Iron Triangle. The map contains the parks's structures and properties, as well as the bus stops in the area. The map is designed to be user-friendly and visually appealing, with a focus on providing clear information about the locations and their significance.
         </p>
 
         <!-- 地图容器 -->
@@ -39,32 +38,21 @@
       </div>
     </main>
 
-   
-        <!-- 地铁站数据图例 -->
-        <div id="turnstile-legend" class="legend2">
-            <h4>Drop in Ridership</h4>
-            <p><em>Click on stations for detailed turnstile usage</em></p>
-            <div><span style="background-color: #fef0d3"></span>&#8594;
-              <span style="background-color: #ff4400; height:20px; width:20px"></span> 
-              < 50% decrease to > 90% decrease
-            </div>
-        </div>
+    <!-- 图例 -->
+<div id="map-legend" class="legend2">
+  <h4>Map Legend</h4>
+  <div><span style="background-color: #00a2ca;"></span> NYC Parks Structures</div>
+  <div><span style="background-color: #4CAF50;"></span> Parks Properties</div>
+  <div>
+    <span style="background-color: #ffba31; border: 1px solid #4d4d4d; border-radius: 50%; display: inline-block; width: 12px; height: 12px;"></span>
+    Bus Stops
+  </div>
+</div>
 
-        <!-- 收入数据图例 -->
-        <div id="income-legend" class="legend">
-            <h4>Median Household Income</h4>
-            <div><span style="background-color: #00a2ca"></span>$150,000 +</div>
-            <div><span style="background-color: #33b5d5"></span>$100,000 - $150,000</div>
-            <div><span style="background-color: #66c7e0"></span>$75,000 - $100,000</div>
-            <div><span style="background-color: #99daea"></span>$50,000 - $75,000</div>
-            <div><span style="background-color: #ccedf5"></span>$20,000 - $50,000</div>
-            <div><span style="background-color: #ffffff"></span>Less than $20,000</div>
-        </div>
-      </div>
-    </div>
+
+
 
     <!-- 加载 JavaScript -->
     <script src="./map.js"></script>
-
   </body>
 </html>

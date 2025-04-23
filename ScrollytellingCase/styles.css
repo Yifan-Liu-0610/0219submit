@@ -10,13 +10,18 @@ body {
   }
   
   #header {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     width: 100%;
     position: relative;
     z-index: 5;
-    padding: 2vh 0vh 5vh 0vh;
+    padding: 0;
   }
+  
+  
   
   #features {
     padding-top: 80vh;
@@ -36,16 +41,77 @@ body {
     width: 100%;
     position: relative;
     z-index: 5;
+    
   }
   
   #header h1 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 700;
+    font-style: normal;
     text-transform: uppercase;
-    font-family: "Merriweather", serif;
-    text-align: left;
+    text-align: center;
     margin: auto;
     max-width: 600px;
+    white-space: nowrap;
   }
+  
+  .scroll-hint {
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1em;
+    color: #444;
+    animation: blink 2.4s infinite ease-in-out;
+  }
+  
+  
+
+  /* 顶部标题 */
+  .top-title {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    text-align: center;
+    margin: 0 auto 1em auto;
+    max-width: 600px;
+    padding-top: 1em;
+
+  }
+  
+
+/* 副标题 */
+#header h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 1em auto 0 auto;
+  max-width: 600px;
+}
+
+/* 保持底部提示随 header 移动 */
+.scroll-hint {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 1em;
+  color: #444;
+}
+
+.subtitle {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 1em auto 0 auto;
+  max-width: 600px;
+}
+
+
+
+  
   #header h4 {
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 300;
@@ -69,12 +135,14 @@ body {
     margin: 1em auto 1em auto;
   }
   #features h3 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: "Merriweather", serif;
     text-align: left;
     max-width: 50vw;
   }
+  
   #features p {
     font-family: "Roboto Condensed", sans-serif;
     text-align: left;
@@ -156,3 +224,26 @@ body {
     .mapboxgl-canvas {
     touch-action: unset;
   }
+
+  #header h1,
+  #header h4,
+  #header p,
+  #features h3,
+  #features p,
+  #footer p,
+  .imageCredit,
+  .step div {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+  

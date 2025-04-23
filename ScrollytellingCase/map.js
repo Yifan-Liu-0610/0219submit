@@ -267,6 +267,36 @@ map.on("load", function () {
     },
     "waterway"
   );
+  map.addSource("willetsPoint", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: [-73.847892, 40.755808],
+          },
+        },
+      ],
+    },
+  });
+  
+  map.addLayer({
+    id: "willetsPointMarker",
+    type: "circle",
+    source: "willetsPoint",
+    paint: {
+      "circle-radius": 5,
+      "circle-color": "#e63946",
+      "circle-stroke-color": "#fff",
+      "circle-stroke-width": 3,
+      "circle-opacity": 0,
+    },
+  });
+  
 
   // setup the instance, pass callback functions
   scroller
@@ -329,3 +359,26 @@ map.on("load", function () {
     document.querySelectorAll('[data-scrollama-index="0"]')[0].scrollIntoView();
   }
 });
+
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space" || event.code === "PageDown") {
+    event.preventDefault();
+
+    const active = document.querySelector(".step.active");
+    const steps = Array.from(document.querySelectorAll(".step"));
+    const currentIndex = steps.indexOf(active);
+
+    if (currentIndex < steps.length - 1) {
+      const nextStep = steps[currentIndex + 1];
+
+      const offset = nextStep.offsetTop;
+      const adjustment = window.innerHeight * 0.2;  // 调整值：让它略低于屏幕正中
+
+      window.scrollTo({
+        top: offset - adjustment,
+        behavior: "smooth",
+      });
+    }
+  }
+});
+
