@@ -20,7 +20,7 @@ map.on('load', () => {
     // **县级失业率数据源**
     map.addSource('county-unemployment', {
         'type': 'geojson',
-        'data': './us-county-unemployment_compressed.geojson' // 确保这个文件能被正确加载
+        'data': './202312unF.geojson' // 确保这个文件能被正确加载
     });
 
     // **州级失业率图层**
@@ -55,7 +55,7 @@ map.on('load', () => {
             'fill-color': [
                 'interpolate',
                 ['linear'],
-                ['get', 'Unemployment Rate'],
+                ['get', 'UNEMPRATE'],
                 0, '#f7fcfd',   // 失业率最低 - 浅蓝
                 2, '#deebf7',
                 4, '#c6dbef',
