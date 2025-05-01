@@ -14,23 +14,25 @@ let descriptionDiv = subtitleDiv + scrollHintDiv;
 
 let footerDiv =
   '<p>Cornell University | AAP NYC Gensler Family Center | ARCH 6132 Intermediate Applications</p>' +
-  '<p>Instructor: <a href="https://juanfrans.com/" target="_blank">Juan Francisco Saldarriaga</p>' +
+ '<p>Instructor: <a href="https://juanfrans.com/" target="_blank">Juan Francisco Saldarriaga</a></p>' +
   '<p><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> | <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a></p>';
 
 let divChapter1 =
-  "<h3>Background of Willets Point</h3>" +
+  "<h3>The Last Vacant land in NYC</h3>" +
   "<p>Willets Point, a neglected stretch of land wedged between Citi Field and Flushing, has long been an industrial wasteland.</p>";
 
 let divChapter2 =
-  "<h3>Background of Willets Point</h3>" +
+  "<h3>Dirty in history</h3>" +
   '<img src="./PIC/ash.jpeg">' +
   '<p class="imageCredit"><a href="https://ny1.com/nyc/all-boroughs/community/2022/11/22/how-willets-point-went-from-the-valley-of-ashes-to-a-multi-million-dollar-soccer-stadium">Spectrum News NY1</a></p>' +
-  "<p>For decades, it was home to auto body shops, scap yards, and illegal dumping grounds. Once a tidal wetland, the area was filled with coal ash, garbage, and industrial waste to create buildable land.</p>";
+  "<p>For decades, it was home to auto body shops, scrap yards, and illegal dumping grounds. Once a tidal wetland, the area was filled with coal ash, garbage, and industrial waste to create buildable land.</p>";
 
-let divChapter2_5 =
+  let divChapter2_5 =
   "<h3>Let's Do Something in Willets Point!</h3>" +
   '<img src="./PIC/NYC_housingcrisis.jpg">' +
-  "<p>Now, New York City is facing an unprecedented housing crisis.</p>";
+  "<p>Now, New York City is facing an unprecedented housing crisis.</p>" +
+  '<p style="margin-top:10px;"><span style="display:inline-block; width:12px; height:12px; background-color:#36A7CA; border-radius:50%; opacity:0.3; margin-right:6px;"></span>represents the demand for affordable housing</p>';
+
 
 let divChapter3 = "";
 
@@ -115,19 +117,30 @@ let divChapter12 =
   '<img src="">' +
   '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html"></a></p>' +
   "<p>While copper is an essential trace element for human health, excessive levels of copper in the environment can pose significant risks. High concentrations of copper in soil and drinking water can lead to gastrointestinal distress, liver and kidney damage, and long-term ecological impacts. In areas transitioning to residential use, elevated copper levels highlight the importance of proactive environmental management to protect future residents from potential health hazards.</p>" +
-  "<p>▶ Statistics on Copper Levels in New York City's Domestic Water (g/L)</p>" +
+  "<p>▶ Statistics on Copper Levels in New York City's Domestic Water (mg/L)</p>" +
   '<img src="./PIC/cooperbar.png" style="width:250px; height:auto;">';
+
 
   let divChapter13 = `
   <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
     <img src="./PIC/beforechart.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
     <div style="width: 100%;">
       <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">Deeper Soil, Less Contamination</h3>
-      <p style="font-size: 1.5em; line-height: 1.6; text-align: left; margin-top: 0;">The testing team Langan D.P.C took XX samples for project XX, reported on VOC, SVOC, and metal substances, and recorded and illustrated the sample depths with the highest content and the lowest content as shown in the figure.</p>
-      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://dos.ny.gov/system/files/documents/2024/04/f-2024-0185.pdf" target="_blank">THIS LINK SHOULD BE CHANGED!!!!!!!!</a></p>
+      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2022-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)</a></p>
     </div>
   </div>
 `;
+
+let divChapter13_1 = `
+  <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
+    <img src="./PIC/before1-1.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+    <div style="width: 100%;">
+      <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">A completely uninhabitable place</h3>
+      <p>RURR: Restricted Use - Restricted Residential Soil Cleanup Objectives. </p>
+      <p>RURR applies to residential sites with restrictions—such as engineered barriers or land-use controls. It's less strict than full residential standards, but more protective than commercial or industrial ones. Commonly used in brownfield projects like Willets Point, where housing is allowed but with environmental safeguards.</p>
+      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2022-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)
+  </div>
+`; 
 
 let divChapterinterviewcorona =
   "<h3>Medical Records ≠ Health Status</h3>" +
@@ -172,28 +185,25 @@ let divChapterinterviewcorona =
 
 
 let divChapter15_1 =
-  "<h3>The vast majority of soil samples passed the VOC test</h3>" +
-  '<img src="images/Chapter_4_Image.jpg">' +
-  '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>BALABALABALABAL</p>" + 
-  "<p>Click on the point to see which tests failed.</p>";
+  "<h3>VOC: Easy Come, Easy Go</h3>" +
+  "<p>VOCs, or volatile organic compounds, come from fuel, solvents, and car repair work. They’re easier to clean than heavy metals because they evaporate and break down more quickly. After removing old fuel tanks and contaminated soil at Willets Point, VOC levels dropped significantly and stayed within safe limits.</p>" + 
+  '<img src="./PIC/barf.png" style="width:250px; height:auto;">' +
+  "<p>▶ Click on the point to see which contents exceed the limit.</p>";
 
 let divChapter15_2 =
-  "<h3>What Did NYC Done SVOC</h3>" +
-  '<img src="images/Chapter_4_Image.jpg">' +
-  '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>BALABALABALABAL</p>" + 
-  "<p>Click on the point to see which tests failed.</p>";
+"<h3>SVOC: Stuck in the Soil</h3>" +
+  "<p>SVOCs, or semi-volatile organic compounds, come from things like motor oil, asphalt, and industrial waste. They don’t evaporate as easily as VOCs and tend to stick to soil particles, making them harder to remove. At Willets Point, some SVOCs were reduced, but full cleanup was more challenging.</p>" + 
+  '<img src="./PIC/barf.png" style="width:250px; height:auto;">' +
+  "<p>▶ Click on the point to see which contents exceed the limit.</p>";
 
 let divChapter15_3 =
-  "<h3>What Did NYC Done METAL</h3>" +
-  '<img src="images/Chapter_4_Image.jpg">' +
-  '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>BALABALABALABAL</p>" + 
-  "<p>Click on the point to see which tests failed.</p>";
+  "<h3>Metals: The Ones That Stay</h3>" +
+  "<p>Metals like lead, arsenic, and mercury come from industrial activity, car repairs, and old fill materials. Unlike VOCs, metals don’t break down over time—they stay in the soil. At Willets Point, metal cleanup required deep excavation, but some residues still lingered due to their persistence.</p>" + 
+  '<img src="./PIC/barf.png" style="width:250px; height:auto;">' +
+  "<p>▶ Click on the point to see which contents exceed the limit.</p>";
 
 let divblackout01 =
-"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>The Willets Point redevelopment is a test of New York City's commitment to equitable andsustainable growth. Will it be a model for responsible urban renewal, or will it become anotherchapter in the city's long history of environmental neglect?</h1>";
+"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>The Willets Point redevelopment is a test of New York City's commitment to equitable and sustainable growth. Will it be a model for responsible urban renewal, or will it become anotherchapter in the city's long history of environmental neglect?</h1>";
 
 let divblackout02 =
 "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>As excavators and bulldozers are working to build the site, we must ask ourselves - will future residents really be safe?</h1>";
@@ -261,12 +271,13 @@ var config = {
       rotateAnimation: false,
       callback: "",
       onChapterEnter: [
-        { layer: "affordableHousingDots", opacity: 0.8, duration: 500 }
+        { layer: "affordable_housing_layer", opacity: 0.8, duration: 500 }
       ],
       onChapterExit: [
-        { layer: "affordableHousingDots", opacity: 0, duration: 500 }
-      ],
+        { layer: "affordable_housing_layer", opacity: 0, duration: 500 }
+      ]
     },
+    
     {
       id: "weekdayTrips",
       alignment: "full",
@@ -355,31 +366,7 @@ var config = {
         { layer: "childasthma", opacity: 0, duration: 300 }
       ],
     },
-    
-    {
-      id: "DATA4",
-      alignment: "right",
-      hidden: false,
-      chapterDiv: divChapter8,
-      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
-      mapAnimation: "flyTo",
-      rotateAnimation: false,
-      callback: "",
-      onChapterEnter: [],
-      onChapterExit: [],
-    },
-    {
-      id: "DATA5",
-      alignment: "right",
-      hidden: false,
-      chapterDiv: divChapter9,
-      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
-      mapAnimation: "flyTo",
-      rotateAnimation: false,
-      callback: "",
-      onChapterEnter: [],
-      onChapterExit: [],
-    },
+  
     {
       id: "Chapter9_5",
       alignment: "full",
@@ -392,18 +379,7 @@ var config = {
       onChapterEnter: [],
       onChapterExit: []
     },
-    {
-      id: "chapter10",
-      alignment: "full",
-      hidden: false,
-      chapterDiv: divChapter10,
-      location: { center: [-73.8473, 40.7572], zoom: 16, pitch: 40, bearing: -7 },
-      mapAnimation: "flyTo",
-      rotateAnimation: false,
-      callback: "",
-      onChapterEnter: [],
-      onChapterExit: [],
-    },
+    
     {
       id: "DATA2_1",
       alignment: "left",
@@ -437,9 +413,32 @@ var config = {
         { layer: "cooper_layer", opacity: 0, duration: 300 }
       ],
     },
-    
+    {
+      id: "chapter10",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapter10,
+      location: { center: [-73.8473, 40.7572], zoom: 16, pitch: 40, bearing: -7 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: [],
+    },
     {
       id: "DATA2_3",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapter13_1,
+      location: { center: [-74.2, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: [],
+    },
+    {
+      id: "before1-1",
       alignment: "full",
       hidden: false,
       chapterDiv: divChapter13,
@@ -450,6 +449,7 @@ var config = {
       onChapterEnter: [],
       onChapterExit: [],
     },
+    
     {
       id: "interview",
       alignment: "right",

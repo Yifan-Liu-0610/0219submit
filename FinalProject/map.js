@@ -435,8 +435,8 @@ map.addLayer({
     "circle-radius": 6,
     "circle-color": [
       "interpolate", ["linear"], ["get", "VOC-PASS-RATE"],
-      75, "#000000",
-      100, "#8ED973"
+      97, "#250c4d",
+      100, "#df6c62"
     ],
     "circle-stroke-color": "#ffffff",
     "circle-stroke-width": 1,
@@ -482,8 +482,8 @@ map.addLayer({
     "circle-radius": 6,
     "circle-color": [
       "interpolate", ["linear"], ["get", "SVOC-PASS-RATE"],
-      75, "#000000",
-      100, "#00FF00"
+      93, "#250c4d",
+      100, "#df6c62"
     ],
     "circle-stroke-color": "#ffffff",
     "circle-stroke-width": 1,
@@ -536,8 +536,8 @@ map.addLayer({
       "interpolate",
       ["linear"],
       ["get", "METAL-PASS-RATE"],
-      75, "#000000",
-      100, "#1E90FF"
+      76, "#250c4d",
+      100, "#df6c62"
     ],
     "circle-stroke-color": "#ffffff",
     "circle-stroke-width": 1,
@@ -602,6 +602,23 @@ map.on('click', function (e) {
     }
   }
 });
+
+map.addSource('affordable_housing', {
+  type: 'geojson',
+  data: './data/affordable_housing.geojson'
+});
+
+map.addLayer({
+  id: 'affordable_housing_layer',
+  type: 'circle',
+  source: 'affordable_housing',
+  paint: {
+    'circle-radius': 6,
+    'circle-color': '#36A7CA',
+    'circle-opacity': 0   // 初始为0，不显示
+  }
+});
+
 
 
 
