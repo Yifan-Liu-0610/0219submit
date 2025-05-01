@@ -13,7 +13,8 @@ let scrollHintDiv =
 let descriptionDiv = subtitleDiv + scrollHintDiv;
 
 let footerDiv =
-  '<p>Conell University | AAP NYC Gensler Family Center</p>' +
+  '<p>Cornell University | AAP NYC Gensler Family Center | ARCH 6132 Intermediate Applications</p>' +
+  '<p>Instructor: <a href="https://juanfrans.com/" target="_blank">Juan Francisco Saldarriaga</p>' +
   '<p><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> | <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a></p>';
 
 let divChapter1 =
@@ -117,11 +118,16 @@ let divChapter12 =
   "<p>▶ Statistics on Copper Levels in New York City's Domestic Water (g/L)</p>" +
   '<img src="./PIC/cooperbar.png" style="width:250px; height:auto;">';
 
-let divChapter13 =
-  "<h3>DATA2_3</h3>" +
-  '<img src="images/Chapter_4_Image.jpg">' +
-  '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>The South Bronx, perennially marred in social injustice...</p>";
+  let divChapter13 = `
+  <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
+    <img src="./PIC/beforechart.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+    <div style="width: 100%;">
+      <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">Deeper Soil, Less Contamination</h3>
+      <p style="font-size: 1.5em; line-height: 1.6; text-align: left; margin-top: 0;">The testing team Langan D.P.C took XX samples for project XX, reported on VOC, SVOC, and metal substances, and recorded and illustrated the sample depths with the highest content and the lowest content as shown in the figure.</p>
+      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://dos.ny.gov/system/files/documents/2024/04/f-2024-0185.pdf" target="_blank">THIS LINK SHOULD BE CHANGED!!!!!!!!</a></p>
+    </div>
+  </div>
+`;
 
 let divChapterinterviewcorona =
   "<h3>Medical Records ≠ Health Status</h3>" +
@@ -140,9 +146,36 @@ let divChapterinterviewcorona =
   "<p>“For them, surviving in a transient and unstable community like Flushing is a far more immediate and pressing concern than focusing on environmental issues.”</p>" +
   '<p style="font-size:0.9em;">“对于居民来说，如何在法拉盛这样流动性强、居住不稳定的社区中生存下去，是更现实和紧迫的关注点。”</p>';
 
+let divChapter15_0 =`
+  <div style="max-width: 900px; margin: auto; display: flex; align-items: center; justify-content: center; gap: 40px;">
+    <div style="position: relative; width: 300px; height: 400px;">
+      <img src="./PIC/PDF3.png" style="position: absolute; top: 0; left: 0; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+      <img src="./PIC/PDF2.png" style="position: absolute; top: 20px; left: 20px; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+      <img src="./PIC/PDF1.png" style="position: absolute; top: 40px; left: 40px; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+    </div>
+    <div style="flex: 1;">
+      <p style="font-size: 1.5em; line-height: 1.5; text-align: left;">DDDDDDast development attempts acknowledged the presence of hazardous waste, petroleum contamination, and volatile organic compounds (VOCs) in the soil and water.</p>
+      <p style="font-size: 1.5em; line-height: 1.5; text-align: left;">Yet, despite these known hazards, the city is moving forward with plans to build a new neighborhood on top of this toxic legacy.</p> 
+      <p class="imageCredit"><a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dos.ny.gov/system/files/documents/2024/04/f-2024-0185.pdf">Willets Point Affordable and Senior Housing Development Environmental Assessment</a></p>
+    </div>
+  </div>
+  `;
 
-let divChapter15 =
-  "<h3>Insurance Data</h3>" +
+
+let divChapter15_1 =
+  "<h3>What Did NYC Done VOC</h3>" +
+  '<img src="images/Chapter_4_Image.jpg">' +
+  '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
+  "<p>The South Bronx, perennially marred in social injustice...</p>";
+
+let divChapter15_2 =
+  "<h3>What Did NYC Done SVOC</h3>" +
+  '<img src="images/Chapter_4_Image.jpg">' +
+  '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
+  "<p>The South Bronx, perennially marred in social injustice...</p>";
+
+let divChapter15_3 =
+  "<h3>What Did NYC Done METAL</h3>" +
   '<img src="images/Chapter_4_Image.jpg">' +
   '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
   "<p>The South Bronx, perennially marred in social injustice...</p>";
@@ -151,7 +184,7 @@ let divblackout01 =
 "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>The Willets Point redevelopment is a test of New York City's commitment to equitable andsustainable growth. Will it be a model for responsible urban renewal, or will it become anotherchapter in the city's long history of environmental neglect?</h1>";
 
 let divblackout02 =
-"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>As excavators and bulldozers are about to move in to build the site, we must ask ourselves - will future residents really be safe?</h1>";
+"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>As excavators and bulldozers are working to build the site, we must ask ourselves - will future residents really be safe?</h1>";
 
 var config = {
   style: "mapbox://styles/iwaniwanliu/cm7ea86k600g301qvgcnu3yjg",
@@ -395,7 +428,7 @@ var config = {
     
     {
       id: "DATA2_3",
-      alignment: "left",
+      alignment: "full",
       hidden: false,
       chapterDiv: divChapter13,
       location: { center: [-74.2, 40.725], zoom: 10, pitch: 0, bearing: 0 },
@@ -438,17 +471,80 @@ var config = {
       ],
     },
     {
-      id: "DATA2_4",
-      alignment: "left",
+      id: "chapter10",
+      alignment: "full",
       hidden: false,
-      chapterDiv: divChapter15,
-      location: { center: [-74, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      chapterDiv: divChapter15_0,
+      location: { center: [-73.8473, 40.7572], zoom: 16, pitch: 40, bearing: -7 },
       mapAnimation: "flyTo",
       rotateAnimation: false,
       callback: "",
       onChapterEnter: [],
       onChapterExit: [],
     },
+    {
+      id: "after1",
+      alignment: "left",
+      hidden: false,
+      chapterDiv: divChapter15_1,
+      location: { center: [-73.8428, 40.7563], zoom: 18, pitch: 40, bearing: -9 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [
+        { layer: "after29voc-layer", opacity: 1, duration: 500 },
+        { layer: "after29voc-label", opacity: 1, duration: 500 }
+      ],
+      onChapterExit: [
+        { layer: "after29voc-layer", opacity: 0, duration: 300 },
+        { layer: "after29voc-label", opacity: 0, duration: 300 }
+      ]
+    },
+    
+    
+    {
+      id: "after2",
+      alignment: "left",
+      hidden: false,
+      chapterDiv: divChapter15_2,
+      location: { center: [-73.8428, 40.7563], zoom: 18, pitch: 40, bearing: -9 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [
+        { layer: "after29svoc-layer", opacity: 1, duration: 500 },
+        { layer: "after29svoc-label", opacity: 1, duration: 500 }
+      ],
+      onChapterExit: [
+        { layer: "after29svoc-layer", opacity: 0, duration: 300 },
+        { layer: "after29svoc-label", opacity: 0, duration: 300 }
+      ]
+    },
+    {
+      id: "after3",
+      alignment: "left",
+      hidden: false,
+      chapterDiv: divChapter15_3,
+      location: {
+        center: [-73.8428, 40.7563],
+        zoom: 18,
+        pitch: 40,
+        bearing: -9
+      },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [
+        { layer: "after29metal-layer", opacity: 1, duration: 500 },
+        { layer: "after29metal-label", opacity: 1, duration: 500 }
+      ],
+      onChapterExit: [
+        { layer: "after29metal-layer", opacity: 0, duration: 300 },
+        { layer: "after29metal-label", opacity: 0, duration: 300 }
+      ]
+    },
+    
+    
     {
       id: "blackout",
       alignment: "full",

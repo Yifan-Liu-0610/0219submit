@@ -182,28 +182,7 @@ map.on("load", function () {
     },
   });
 
-  map.addSource("affordableHousing", {
-    type: "geojson",
-    data: "./DATA/Affordable_Housing.geojson"
-  });
-  map.addLayer({
-    id: "affordableHousingDots",
-    type: "circle",
-    source: "affordableHousing",
-    paint: {
-      "circle-radius": 5,
-      "circle-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "All Counted Units"],
-        1, "#fca5a5",
-        50, "#dc2626"
-      ],
-      "circle-stroke-color": "#333",
-      "circle-stroke-width": 0.5,
-      "circle-opacity": 0
-    },
-  });
+
 
   map.addSource("coronaclinic", {
     type: "geojson",
@@ -233,6 +212,7 @@ map.on("load", function () {
   });
   // 点击黄色圆点，弹出Popup
 map.on('click', 'coronaclinicpoint', function (e) {
+  e.originalEvent.cancelBubble = true;  // ✅ 阻止事件冒泡
   new mapboxgl.Popup()
     .setLngLat(e.lngLat)
     .setHTML(`
@@ -240,14 +220,6 @@ map.on('click', 'coronaclinicpoint', function (e) {
       <img src="./PIC/clinic.png" style="width:200px; border-radius:6px; margin-top:5px;">
     `)
     .addTo(map);
-});
-
-// 让鼠标经过小圆点时变成小手（提升用户体验）
-map.on('mouseenter', 'coronaclinicpoint', function () {
-  map.getCanvas().style.cursor = 'pointer';
-});
-map.on('mouseleave', 'coronaclinicpoint', function () {
-  map.getCanvas().style.cursor = '';
 });
 
 
@@ -289,12 +261,22 @@ new mapboxgl.Popup()
   .addTo(map);
 });
 
-// 让鼠标经过小圆点时变成小手（提升用户体验）
-map.on('mouseenter', 'flushingclinicpoint', function () {
-map.getCanvas().style.cursor = 'pointer';
+
+
+map.on('mouseenter', 'after29voc-layer', () => {
+  map.getCanvas().style.cursor = 'pointer';
 });
-map.on('mouseleave', 'flushingclinicpoint', function () {
-map.getCanvas().style.cursor = '';
+map.on('mouseleave', 'after29voc-layer', () => {
+  map.getCanvas().style.cursor = '';
+});
+
+
+
+map.on('mouseenter', 'after29svoc-layer', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+map.on('mouseleave', 'after29svoc-layer', () => {
+  map.getCanvas().style.cursor = '';
 });
 
 
@@ -435,6 +417,192 @@ map.addLayer({
 
 // 把willetsPointMarker移到最上面
 map.moveLayer('willetsPointMarker');
+
+
+
+
+
+map.addSource("after29voc", {
+  type: "geojson",
+  data: "./DATA/AFTER29VOC.geojson"
+});
+
+map.addLayer({
+  id: "after29voc-layer",
+  type: "circle",
+  source: "after29voc",
+  paint: {
+    "circle-radius": 6,
+    "circle-color": [
+      "interpolate", ["linear"], ["get", "VOC-PASS-RATE"],
+      75, "#000000",
+      100, "#8ED973"
+    ],
+    "circle-stroke-color": "#ffffff",
+    "circle-stroke-width": 1,
+    "circle-opacity": 0
+  }
+});
+
+//NEW VOC LAYER
+map.addLayer({
+  id: "after29voc-label",
+  type: "symbol",
+  source: "after29voc",
+  layout: {
+    "text-field": ["concat", ["get", "VOC-PASS-RATE"], "%"],
+    "text-font": ["Arial Unicode MS Regular"],
+    "text-size": 12,
+    "text-offset": [0, 2],
+    "text-anchor": "top",
+    "text-allow-overlap": true
+  },
+  paint: {
+    "text-color": "#000",
+    "text-opacity": 0
+  }
+});
+
+
+//voc new popup
+
+
+
+//new svoc
+map.addSource("after29svoc", {
+  type: "geojson",
+  data: "./DATA/AFTER29SVOC.geojson"
+});
+
+map.addLayer({
+  id: "after29svoc-layer",
+  type: "circle",
+  source: "after29svoc",
+  paint: {
+    "circle-radius": 6,
+    "circle-color": [
+      "interpolate", ["linear"], ["get", "SVOC-PASS-RATE"],
+      75, "#000000",
+      100, "#00FF00"
+    ],
+    "circle-stroke-color": "#ffffff",
+    "circle-stroke-width": 1,
+    "circle-opacity": 0  // 初始隐藏，由章节控制
+  }
+});
+
+map.addLayer({
+  id: "after29svoc-label",
+  type: "symbol",
+  source: "after29svoc",
+  layout: {
+    "text-field": ["concat", ["get", "SVOC-PASS-RATE"], "%"],
+    "text-font": ["Arial Unicode MS Regular"],
+    "text-size": 12,
+    "text-offset": [0, 2],
+    "text-anchor": "top",
+    "text-allow-overlap": true
+  },
+  paint: {
+    "text-color": "#000000",
+    "text-halo-color": "#ffffff",
+    "text-halo-width": 1,
+    "text-opacity": 0  // 初始隐藏，由章节控制
+  }
+});
+// ✅ 4. 点击和鼠标交互逻辑（放在 source+layer 后面）
+
+
+map.on('mouseenter', 'after29svoc-layer', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+map.on('mouseleave', 'after29svoc-layer', () => {
+  map.getCanvas().style.cursor = '';
+});
+
+//new meatal
+map.addSource("after29metal", {
+  type: "geojson",
+  data: "./DATA/AFTER29Metal.geojson"
+});
+
+map.addLayer({
+  id: "after29metal-layer",
+  type: "circle",
+  source: "after29metal",
+  paint: {
+    "circle-radius": 6,
+    "circle-color": [
+      "interpolate",
+      ["linear"],
+      ["get", "METAL-PASS-RATE"],
+      75, "#000000",
+      100, "#1E90FF"
+    ],
+    "circle-stroke-color": "#ffffff",
+    "circle-stroke-width": 1,
+    "circle-opacity": 0  // 初始透明
+  }
+});
+
+map.addLayer({
+  id: "after29metal-label",
+  type: "symbol",
+  source: "after29metal",
+  layout: {
+    "text-field": ["concat", ["get", "METAL-PASS-RATE"], "%"],
+    "text-font": ["Arial Unicode MS Regular"],
+    "text-size": 12,
+    "text-offset": [0, 2],
+    "text-anchor": "top",
+    "text-allow-overlap": true
+  },
+  paint: {
+    "text-color": "#000000",
+    "text-halo-color": "#ffffff",
+    "text-halo-width": 1,
+    "text-opacity": 0
+  }
+});
+
+
+
+map.on('mouseenter', 'after29metal-layer', () => {
+  map.getCanvas().style.cursor = 'pointer';
+});
+map.on('mouseleave', 'after29metal-layer', () => {
+  map.getCanvas().style.cursor = '';
+});
+
+
+// ✅ 统一的点击响应逻辑（放在所有 layer 添加完之后）
+map.on('click', function (e) {
+  const layers = [
+    { id: 'after29metal-layer', key: 'METAL' },
+    { id: 'after29svoc-layer', key: 'SVOC' },
+    { id: 'after29voc-layer', key: 'VOC' }
+  ];
+
+  for (const layer of layers) {
+    const visibility = map.getPaintProperty(layer.id, 'circle-opacity');
+    if (visibility === 0) continue; // 跳过当前不可见图层
+
+    const features = map.queryRenderedFeatures(e.point, { layers: [layer.id] });
+    if (features.length) {
+      const props = features[0].properties;
+      const popupHTML = `
+        <div style="font-family: Raleway, sans-serif; font-size: 13px;">
+          <strong>Soil Sample CODE:</strong> ${props["CODE"]}<br>
+          <strong>Number of failed tests:</strong> ${props[`${layer.key}-EXCEEDNUM`]}<br>
+          <strong>Failed test items:</strong> ${props[layer.key]}
+        </div>
+      `;
+      new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(popupHTML).addTo(map);
+      break; // 只显示一个
+    }
+  }
+});
+
 
 
   // --- 监听滚动 ---
