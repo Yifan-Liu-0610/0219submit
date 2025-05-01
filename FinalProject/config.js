@@ -146,39 +146,51 @@ let divChapterinterviewcorona =
   "<p>“For them, surviving in a transient and unstable community like Flushing is a far more immediate and pressing concern than focusing on environmental issues.”</p>" +
   '<p style="font-size:0.9em;">“对于居民来说，如何在法拉盛这样流动性强、居住不稳定的社区中生存下去，是更现实和紧迫的关注点。”</p>';
 
-let divChapter15_0 =`
+  let divChapter15_0 = `
   <div style="max-width: 900px; margin: auto; display: flex; align-items: center; justify-content: center; gap: 40px;">
     <div style="position: relative; width: 300px; height: 400px;">
-      <img src="./PIC/PDF3.png" style="position: absolute; top: 0; left: 0; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
-      <img src="./PIC/PDF2.png" style="position: absolute; top: 20px; left: 20px; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
-      <img src="./PIC/PDF1.png" style="position: absolute; top: 40px; left: 40px; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+      <img src="./PIC/pdf2-1.png" style="position: absolute; top: 0; left: 0; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3); z-index: 1;">
+      <img src="./PIC/pdf2-2.png" style="position: absolute; top: 20px; left: 15px; width: 80%; transform: rotate(1.5deg); box-shadow: 2px 2px 8px rgba(0,0,0,0.3); z-index: 2;">
+      <img src="./PIC/pdf2-3.png" style="position: absolute; top: 40px; left: 30px; width: 80%; transform: rotate(-2deg); box-shadow: 2px 2px 8px rgba(0,0,0,0.3); z-index: 3;">
+      <img src="./PIC/pdf2-4.png" style="position: absolute; top: 60px; left: 45px; width: 80%; transform: rotate(2deg); box-shadow: 2px 2px 8px rgba(0,0,0,0.3); z-index: 4;">
+      <img src="./PIC/pdf2-5.png" style="position: absolute; top: 80px; left: 60px; width: 80%; transform: rotate(-3deg); box-shadow: 2px 2px 8px rgba(0,0,0,0.3); z-index: 5;">
     </div>
+    
     <div style="flex: 1;">
-      <p style="font-size: 1.5em; line-height: 1.5; text-align: left;">DDDDDDast development attempts acknowledged the presence of hazardous waste, petroleum contamination, and volatile organic compounds (VOCs) in the soil and water.</p>
-      <p style="font-size: 1.5em; line-height: 1.5; text-align: left;">Yet, despite these known hazards, the city is moving forward with plans to build a new neighborhood on top of this toxic legacy.</p> 
-      <p class="imageCredit"><a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dos.ny.gov/system/files/documents/2024/04/f-2024-0185.pdf">Willets Point Affordable and Senior Housing Development Environmental Assessment</a></p>
+      
+      <p style="font-size: 1.2em; line-height: 1.5; text-align: left;">
+        As part of the investigation, Langan conducted detailed environmental sampling at 29 soil locations, focusing on the presence of three categories of contaminants: Volatile Organic Compounds (VOC), Semi-Volatile Organic Compounds (SVOC), Metals.
+      </p> 
+      <p class="imageCredit">
+        <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2023-12-20.Final%20Engineering%20Report_Text_Figures_Tables.pdf" target="_blank">Final Report for Willets Point Development Phase 1 Housing Buolding 1 and 2</a>
+      </p>
     </div>
   </div>
-  `;
+`;
+
+
 
 
 let divChapter15_1 =
-  "<h3>What Did NYC Done VOC</h3>" +
+  "<h3>The vast majority of soil samples passed the VOC test</h3>" +
   '<img src="images/Chapter_4_Image.jpg">' +
   '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>The South Bronx, perennially marred in social injustice...</p>";
+  "<p>BALABALABALABAL</p>" + 
+  "<p>Click on the point to see which tests failed.</p>";
 
 let divChapter15_2 =
   "<h3>What Did NYC Done SVOC</h3>" +
   '<img src="images/Chapter_4_Image.jpg">' +
   '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>The South Bronx, perennially marred in social injustice...</p>";
+  "<p>BALABALABALABAL</p>" + 
+  "<p>Click on the point to see which tests failed.</p>";
 
 let divChapter15_3 =
   "<h3>What Did NYC Done METAL</h3>" +
   '<img src="images/Chapter_4_Image.jpg">' +
   '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html">The New York Times</a></p>' +
-  "<p>The South Bronx, perennially marred in social injustice...</p>";
+  "<p>BALABALABALABAL</p>" + 
+  "<p>Click on the point to see which tests failed.</p>";
 
 let divblackout01 =
 "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>The Willets Point redevelopment is a test of New York City's commitment to equitable andsustainable growth. Will it be a model for responsible urban renewal, or will it become anotherchapter in the city's long history of environmental neglect?</h1>";
@@ -471,7 +483,7 @@ var config = {
       ],
     },
     {
-      id: "chapter10",
+      id: "chapter15_0",
       alignment: "full",
       hidden: false,
       chapterDiv: divChapter15_0,
