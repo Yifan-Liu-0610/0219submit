@@ -605,7 +605,7 @@ map.on('click', function (e) {
 
 map.addSource('affordable_housing', {
   type: 'geojson',
-  data: './data/affordable_housing.geojson'
+  data: './DATA/affordable_housing.geojson'
 });
 
 map.addLayer({
