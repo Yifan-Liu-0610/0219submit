@@ -22,10 +22,10 @@ let divChapter1 =
   "<p>Willets Point, a neglected stretch of land wedged between Citi Field and Flushing, has long been an industrial wasteland.</p>";
 
 let divChapter2 =
-  "<h3>Dirty in history</h3>" +
+  "<h3>WILLETS POINT: HOUSING WHERE IT'S NEEDED THE MOST</h3>" +
   '<img src="./PIC/ash.jpeg">' +
   '<p class="imageCredit"><a href="https://ny1.com/nyc/all-boroughs/community/2022/11/22/how-willets-point-went-from-the-valley-of-ashes-to-a-multi-million-dollar-soccer-stadium">Spectrum News NY1</a></p>' +
-  "<p>For decades, it was home to auto body shops, scrap yards, and illegal dumping grounds. Once a tidal wetland, the area was filled with coal ash, garbage, and industrial waste to create buildable land.</p>";
+  "<p>New York City is facing the nation’s most severe housing crisis, and Willets Point offers a rare solution. As one of the last remaining large undeveloped parcels of land in the city, Willets Point has become a key site for building new affordable housing. Despite its toxic legacy of industrial pollution, the urgency of the crisis has pushed the city to transform this contaminated site into a future neighborhood.</p>";
 
   let divChapter2_5 =
   "<h3>Let's Do Something in Willets Point!</h3>" +
@@ -39,30 +39,33 @@ let divChapter3 = "";
 let divChapter4 =
   '<div style="max-width:900px; margin-left:auto; margin-right:auto"><img src="./PIC/proposal.jpg"></div>' +
   "<p class='imageCredit' style='max-width:900px; margin-left:auto; margin-right:auto'><a href='https://www.willetspointqueens.com/'>NYC Proposal for Willets Point (Qri)</a></p>" +
-  "<p style='max-width:900px; margin-left:auto; margin-right:auto'>City of New York are eager to transform this last undeveloped frontier into a gleaming mixed-use neighborhood.Willets Point will feature 2,500 units of 100% affordable housing that will anchor the new neighborhood. Residential buildings will include workforce housing and affordable homes for individuals, families and low-income seniors. These much-needed affordable and environmentally sustainable residences will help address the city’s shortage of affordable housing by connecting New Yorkers with high-quality, 100% affordable homes.</p>";
+  "<h3 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:left;'>CURRENT PROPOSAL FOR WILLETS POINT</h3>" +
+  "<p style='max-width:900px; margin-left:auto; margin-right:auto'>City of New York are eager to transform this last undeveloped frontier into a gleaming mixed-use neighborhood. Willets Point will feature 2,500 units of 100% affordable housing that will anchor the new neighborhood. Residential buildings will include workforce housing and affordable homes for individuals, families and low-income seniors. These much-needed affordable and environmentally sustainable residences will help address the city’s shortage of affordable housing by connecting New Yorkers with high-quality, 100% affordable homes.</p>";
 
 let divChapter4_copyIntro = 
 
-"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>But hidden beneath the promise of new homes and commercial centers is a toxic history that poses significant risks to future residents.</h1>";
+"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>But hidden beneath the promise of new homes and commercial centers is a toxic history that poses significant risks to future residents.</h1>" +
+"<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>But is it safe to live here?</h1>";
 
 
 let divChapter4_copy = 
 "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Chapter 1: Residents' Health Data</h1>" +
-  "<h3 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>This investigation explores the unseen dangers lurking beneath the surface, the potential health risks already affecting nearby communities, and the urgent need for remediation before development proceeds.</h3>";
+  "<h3 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Unseen danger is lurking beneath the surface. Toxins are already affecting the nearby residents, bringing challenge to the already fragile communities.</h3>";
   
 
 let divChapter5 =
   "<h3>Low Insurance Rate</h3>" +
   '<p class="imageCredit"></p>' +
   "<p>One in four residents around Willets Point lacks health insurance-twice the citywide average.</p>" +
-  "<p>Since the Corona community on the east side of Willets Point is a gathering place for Spanish-speaking immigrants, and the Flushing community on the east side is a gathering place for Chinese/Korean immigrants, both sides have a high proportion of unregistered residents, and the proportion of residents holding medical insurance is also very low.</p>" +
+  "<p>The Corona community to the east is home to many Spanish-speaking immigrants, while Flushing to the west is largely made up of Chinese and Korean immigrant populations. Both areas have a high proportion of undocumented residents and relatively low rates of health coverage.</p>" +
+  "<p>As a result, residents in these communities may have limited access to timely and effective medical care when facing environmental health risks. Poor environmental conditions can therefore have a more pronounced impact on their well-being.</p>" +
   '<img src="./PIC/bar1.png" style="width:250px; height:auto;">';
 
 
 let divChapter6 =
   "<h3>High Childhood Lead Poisoning</h3>" +
   '<p class="imageCredit"></p>' +
-  "<p>In the areas surrounding Willets Point, rates of childhood lead poisoning are notably high. Environmental conditions, including the legacy of industrial activities and deteriorating housing infrastructure, have contributed to elevated lead exposure risks for young children. This underscores the urgent need for comprehensive environmental remediation and public health interventions as redevelopment plans for the neighborhood move forward.</p>" +
+  "<p>Rates of childhood lead poisoning in the areas surrounding Willets Point are higher than in many other parts of the city. Contributing factors include the legacy of past industrial activity and aging housing infrastructure, which have increased the risk of lead exposure for young children. These conditions highlight the importance of addressing environmental health concerns as part of the neighborhood's redevelopment efforts.</p>" +
   "<p>◀ Lead Poisoning Percentage among Three-Year-Old Children</p>" +
   '<img src="./PIC/bar2.png" style="width:150px; height:auto;">' ;
 
@@ -86,7 +89,7 @@ let divChapter9 =
   "<p>The South Bronx, perennially marred in social injustice...</p>";
 
 let divChapter9after = 
-  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Chapter 2: Environmental Factor Data</h1>" +
+  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Chapter 2: Assessing Environmental Exposures</h1>" +
   "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>While older housing stock is often blamed, could environmental factors—such as soil and groundwater contamination—be an overlooked culprit?</h2>";
   
 let divChapter10 = `
@@ -108,7 +111,7 @@ let divChapter11 =
   "<h3>The Hidden Dangers of Lead Exposure</h3>" +
   '<img src="./PIC/removelead.jpg">' +
   '<p class="imageCredit"><a href="https://www.netsolwater.com/removal-of-lead-ions-from-industrial-wastewater.php?blog=2899">Netsol Water Solutions</a></p>' +
-  "<p>Lead contamination poses serious and long-lasting health risks, particularly for young children. Even low levels of lead exposure can cause irreversible damage to the nervous system, impair cognitive development, and increase the risk of learning disabilities and behavioral problems. In urban areas with a legacy of industrial use, such as Willets Point and its surroundings, the presence of lead in soil and groundwater remains a significant concern, underscoring the need for rigorous environmental remediation before redevelopment.</p>" +
+  "<p>We sought to understand the factors contributing to elevated blood lead levels in children. Given New York City's historical use of lead service lines, drinking water was considered a potential source. However, testing shows that lead levels in drinking water around Willets Point are not significantly elevated. In contrast, in urban areas with a legacy of industrial activity, such as Willets Point and its surroundings. Lead contamination in soil and groundwater remains a more likely source of exposure.</p>" +
   "<p>▶ Statistics on Lead Levels in New York City's Domestic Water (μg/L)</p>" +
   '<img src="./PIC/leadbar.png" style="width:250px; height:auto;">';
 
@@ -116,7 +119,7 @@ let divChapter12 =
   "<h3>Cooper Contamination Dangers</h3>" +
   '<img src="">' +
   '<p class="imageCredit"><a href="https://www.nytimes.com/2020/04/09/nyregion/coronavirus-queens-corona-jackson-heights-elmhurst.html"></a></p>' +
-  "<p>While copper is an essential trace element for human health, excessive levels of copper in the environment can pose significant risks. High concentrations of copper in soil and drinking water can lead to gastrointestinal distress, liver and kidney damage, and long-term ecological impacts. In areas transitioning to residential use, elevated copper levels highlight the importance of proactive environmental management to protect future residents from potential health hazards.</p>" +
+  "<p>From the same dataset, we also examined copper concentrations and found that copper levels in drinking water around Willets Point are significantly lower than the citywide average. Although we did not have access to data on copper-related health outcomes for comparison, the findings suggest that drinking water quality in the Willets Point area is relatively high and unlikely to be a primary factor affecting public health. Excessive environmental exposure to copper is known to cause gastrointestinal distress as well as liver and kidney damage, but current local water conditions do not indicate elevated risk.</p>" +
   "<p>▶ Statistics on Copper Levels in New York City's Domestic Water (mg/L)</p>" +
   '<img src="./PIC/cooperbar.png" style="width:250px; height:auto;">';
 
@@ -144,16 +147,12 @@ let divChapter13_1 = `
 
 let divChapterinterviewcorona =
   "<h3>Medical Records ≠ Health Status</h3>" +
-  '<img src="./PIC/DOC.png">' +
-  '<p class="imageCredit"><a href="https://chatgpt.com/">This photo was created using AI based on the description of Dr. Laeeq Ahmad</a></p>' +
   "<p>“We used to see a lot of asthma. Now it's quite much better.”</p>" +
   "<p>“One main problem is the medication cost. Many cannot buy, and pharmacies here won't help to find substitutes.”</p>" +
   "<p>“In poor neighborhoods, pharmacies behave differently compared to rich neighborhoods.”</p>" ;
 
   let divChapterinterviewflushing =
   "<h3>Someone Should Care About Their Health More Than the Poor Can Themselves</h3>" +
-  '<img src="./PIC/chinesedoc.png">' +
-  '<p class="imageCredit"><a href="https://chatgpt.com/">This photo was created using AI based on the description.</a></p>' +
   "<p>“Many long-term residents do not perceive serious pollution issues in the surrounding environment and rarely associate health problems with environmental factors.”</p>" +
   '<p style="font-size:0.9em;">“多数居住多年的人并不认为周边环境存在严重污染问题，也很少将健康问题与环境污染联系起来。”</p>' +
   "<p>“For them, surviving in a transient and unstable community like Flushing is a far more immediate and pressing concern than focusing on environmental issues.”</p>" +
