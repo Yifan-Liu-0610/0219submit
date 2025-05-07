@@ -92,7 +92,7 @@ let divChapter9after =
   "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Chapter 2: Assessing Environmental Exposures</h1>" +
   "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>While older housing stock is often blamed, could environmental factors—such as soil and groundwater contamination—be an overlooked culprit?</h2>";
   
-let divChapter10 = `
+  let divChapter10 = `
   <div style="max-width: 900px; margin: auto; display: flex; align-items: center; justify-content: center; gap: 40px;">
     <div style="position: relative; width: 300px; height: 400px;">
       <img src="./PIC/PDF3.png" style="position: absolute; top: 0; left: 0; width: 80%; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
@@ -105,7 +105,45 @@ let divChapter10 = `
       <p class="imageCredit"><a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dos.ny.gov/system/files/documents/2024/04/f-2024-0185.pdf">Willets Point Affordable and Senior Housing Development Environmental Assessment</a></p>
     </div>
   </div>
-  `;
+
+  <div style="max-width: 900px; margin: 40px auto; text-align: left;">
+    <h3>Pre-cleanup contamination</h3>
+    <p>Soil sample testing at Willets Point reveals widespread exceedance of regulatory standards (RURR) across multiple pollutant categories. Here are the most severe contaminations:</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>• VOC (Volatile Organic Compounds)</li>
+      <li>• SVOC (Semi-Volatile Organic Compounds)</li>
+      <li>• METAL (Heavy Metals & Inorganic Pollutants)</li>
+    </ul>
+
+    <h4>VOC: Volatile Organic Compounds</h4>
+    <p>VOCs such as 1,2,4-Trimethylbenzene, Acetone, and Benzene were frequently detected above RURR standards. These compounds are typically associated with:</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>• Industrial solvents</li>
+      <li>• Vehicle and machinery fuel residues</li>
+      <li>• Past auto repair shop activities in Willets Point</li>
+    </ul>
+    <p><strong>Health Impact:</strong> Many VOCs are linked to respiratory issues, neurological symptoms, and even carcinogenic risks (e.g., benzene).</p>
+
+    <h4>SVOC: Semi-Volatile Organic Compounds</h4>
+    <p>SVOCs include Benzo(a)pyrene, Chrysene, and Fluoranthene — all components of Polycyclic Aromatic Hydrocarbons (PAHs), often resulting from:</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>• Incomplete combustion of fuel</li>
+      <li>• Leaks and spills from mechanical operations</li>
+    </ul>
+    <p><strong>Health Impact:</strong> PAHs are known carcinogens. Chronic exposure is associated with skin, lung, and bladder cancers.</p>
+
+    <h4>METALS: Heavy Metals & Inorganics</h4>
+    <p>Metals such as Arsenic, Cadmium, Chromium, and Lead show significant exceedance, some more than 100x the RURR standard. Some metals like Chromium VI and Lead are especially concerning due to their toxicity at even low concentrations.</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>• Auto dismantling operations</li>
+      <li>• Industrial dumping</li>
+      <li>• Battery waste</li>
+      <li>• Metal plating</li>
+    </ul>
+    <p><strong>Health Impact:</strong> Heavy metals can damage neurological development, liver and kidney function, and lead to lifelong chronic illnesses.</p>
+  </div>
+`;
+
   
 let divChapter11 =
   "<h3>The Hidden Dangers of Lead Exposure</h3>" +
@@ -126,37 +164,79 @@ let divChapter12 =
 
   let divChapter13 = `
   <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
-    <img src="./PIC/beforechart.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+    
     <div style="width: 100%;">
       <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">Deeper Soil, Less Contamination</h3>
-      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2022-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)</a></p>
+      <p>Green "x"  detected minimum</p>
+      <p>Red "x" detected maximum </p>
+      <img src="./PIC/beforechart.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+      <p>Most contamination is concentrated in shallow soils (0-5 feet)</p>
+      <p>Across all three groups (VOCs, SVOCs, Metals), the majority of red and green "x" marks are clustered at or near the surface.</p>
+      <p>VOC and SVOC contamination rarely exceeds 10 feet</p>
+      <p>Substances like benzene, toluene, xylene, and Benzo(a)pyrene show limited vertical penetration. This suggests their sources are surface-based or that they bind to upper soils.</p>
+      <p>Some metals penetrate deeper.</p>
+      <P>Contaminants such as cadmium, lead, arsenic, and chromium appear at multiple depths—including below 10 feet. This may reflect long-term accumulation, leaching, or movement through soil layers.</p>
+      <P>Fewer contaminants detected in the deepest layers (15–20 feet).</p>
+      <P>It also implies that remediation efforts may prioritize surface and near-surface layers for effective cleanup.<P>
+      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.20Each dot represents the test result of a specific compound, normalized by its RURR standard. Dots above the black RURR line indicate values exceeding acceptable thresholds. 22-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)</a></p>
     </div>
   </div>
 `;
 
 let divChapter13_1 = `
   <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
-    <img src="./PIC/before1-1.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+    
     <div style="width: 100%;">
       <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">A completely uninhabitable place</h3>
+      <p>Each dot represents the test result of a specific compound, normalized by its RURR standard. Dots above the black RURR line indicate values exceeding acceptable thresholds. </p>
       <p>RURR: Restricted Use - Restricted Residential Soil Cleanup Objectives. </p>
       <p>RURR applies to residential sites with restrictions—such as engineered barriers or land-use controls. It's less strict than full residential standards, but more protective than commercial or industrial ones. Commonly used in brownfield projects like Willets Point, where housing is allowed but with environmental safeguards.</p>
+      
+      <img src="./PIC/before1-1.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
       <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2022-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)
   </div>
 `; 
+
+let divChapteriterviewbefore = 
+  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>And what did local residents say?</h1>" +
+  "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>We went to flushing and corona, went to several pharmacies, asked a few residents. And here are the 2 respond that reflect the common reaction of locals.</h2>";
 
 let divChapterinterviewcorona =
   "<h3>Medical Records ≠ Health Status</h3>" +
   "<p>“We used to see a lot of asthma. Now it's quite much better.”</p>" +
   "<p>“One main problem is the medication cost. Many cannot buy, and pharmacies here won't help to find substitutes.”</p>" +
-  "<p>“In poor neighborhoods, pharmacies behave differently compared to rich neighborhoods.”</p>" ;
+  "<p>“In poor neighborhoods, pharmacies behave differently compared to rich neighborhoods.”</p>" +
+  "<h3>◀ Click on the dot</h3>";
 
   let divChapterinterviewflushing =
   "<h3>Someone Should Care About Their Health More Than the Poor Can Themselves</h3>" +
   "<p>“Many long-term residents do not perceive serious pollution issues in the surrounding environment and rarely associate health problems with environmental factors.”</p>" +
   '<p style="font-size:0.9em;">“多数居住多年的人并不认为周边环境存在严重污染问题，也很少将健康问题与环境污染联系起来。”</p>' +
   "<p>“For them, surviving in a transient and unstable community like Flushing is a far more immediate and pressing concern than focusing on environmental issues.”</p>" +
-  '<p style="font-size:0.9em;">“对于居民来说，如何在法拉盛这样流动性强、居住不稳定的社区中生存下去，是更现实和紧迫的关注点。”</p>';
+  '<p style="font-size:0.9em;">“对于居民来说，如何在法拉盛这样流动性强、居住不稳定的社区中生存下去，是更现实和紧迫的关注点。”</p>'+
+  "<p>“In poor neighborhoods, pharmacies behave differently compared to rich neighborhoods.”</p>" +
+  "<h3> Click on the dot ▶</h3>";
+
+  let divChapterbanner = 
+  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>“We have no time to care about pollution, getting by is hard enough”</h1>" +
+  "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>While the severity of environmental contamination in Willets Point has been well-documented, the impact of this pollution is not felt equally by all. For many residents living in and around the area, especially undocumented immigrants and low-income families, environmental hazards are often overshadowed by more immediate concerns—housing, work, and healthcare access.</h2>" +
+  "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>In a place where survival takes precedence over safety, the long-term risks of contamination are often deprioritized or even ignored. This disconnect between environmental risk and community attention reflects deeper structural inequities, where those most exposed are also those least equipped to respond.</h2>";
+
+  let divChapterbanner2 = 
+  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Chapter 3: Did the Brownfield Cleanup Process Works?</h1>" +
+  "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>The brownfield cleanup at Willets Point involved removing contaminated surface soil—typically up to 2 to 8 feet deep—and replacing it with clean fill. In some areas, deeper excavation reached 15 to 20 feet.</h2>";
+
+  let divChapterbanner3 = `
+  <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
+    
+    <div style="width: 100%;">
+    <img src="./PIC/ex.jpg" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+      <p>While the official brownfield cleanup involved the removal of contaminated soils—typically up to 2 to 8 feet deep, and in some cases up to 15 feet—these efforts largely targeted known hotspots identified through pre-selected borings. However, site-wide contamination profiles suggest that pollutants such as heavy metals and SVOCs may persist beyond the excavated zones.</p>
+      <p>The cleanup prioritized surface-level remediation sufficient for construction clearance, but may not fully address long-term subsurface exposure risks. This is particularly notable given that the site’s future use includes residential housing, where deeper soil layers could be disturbed during foundation work or utility installation. <p>
+      <p>In this context, questions remain as to whether the cleanup depth and scope were aligned with the vulnerabilities of the incoming population—and whether environmental risk was deemed acceptable because the residents are expected to be low-income. <p>
+    </div>
+  </div>
+`;
 
   let divChapter15_0 = `
   <div style="max-width: 900px; margin: auto; display: flex; align-items: center; justify-content: center; gap: 40px;">
@@ -171,8 +251,9 @@ let divChapterinterviewcorona =
     <div style="flex: 1;">
       
       <p style="font-size: 1.2em; line-height: 1.5; text-align: left;">
-        As part of the investigation, Langan conducted detailed environmental sampling at 29 soil locations, focusing on the presence of three categories of contaminants: Volatile Organic Compounds (VOC), Semi-Volatile Organic Compounds (SVOC), Metals.
+        After reviewing the post-cleanup engineering report, we returned our focus to the contaminants that had shown the most serious exceedance levels prior to remediation—specifically VOCs, SVOCs, and heavy metals.
       </p> 
+      <p>These substances were TOXIC. How effectively they were addressed during the cleanup process is a crucial problem.</p>
       <p class="imageCredit">
         <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2023-12-20.Final%20Engineering%20Report_Text_Figures_Tables.pdf" target="_blank">Final Report for Willets Point Development Phase 1 Housing Buolding 1 and 2</a>
       </p>
@@ -200,6 +281,24 @@ let divChapter15_3 =
   "<p>Metals like lead, arsenic, and mercury come from industrial activity, car repairs, and old fill materials. Unlike VOCs, metals don’t break down over time—they stay in the soil. At Willets Point, metal cleanup required deep excavation, but some residues still lingered due to their persistence.</p>" + 
   '<img src="./PIC/barf.png" style="width:250px; height:auto;">' +
   "<p>▶ Click on the point to see which contents exceed the limit.</p>";
+
+  let divChapterbannerafter = 
+  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>But is document safe the real safe?</h1>" +
+  "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>RURR thresholds on housing project?</h1>" +
+  "<h2 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>Using the RURR (Restricted Use-Related Risk) standard to evaluate the environmental safety of a future residential neighborhood is fundamentally flawed. RURR is designed for sites with limited human exposure, such as industrial or commercial zones, not for places where children will play, families will garden, and residents will live long-term. Yet Willets Point, one of the city’s largest affordable housing projects in decades, has been assessed under this lenient threshold. Applying a “restricted use” standard to an unrestricted future community is not just a technical mismatch, it’s a failure of environmental accountability.</h2>";
+
+  let divChapterafterafter = `
+  <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
+    
+    <div style="width: 100%;">
+      <img src="./PIC/afterafter.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
+      <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">Safety Shown in Report ≠ The Real Safe</h3>
+      <p>UU (Unrestricted Use Standard):</p>
+      <p>UU is generally the more appropriate benchmark for residential developments, especially those including vulnerable populations like children and seniors. If evaluated using UU standard, many of the post-cleanup values still exceed the acceptable limits.</p>
+
+      </div>
+  </div>
+`;
 
 let divblackout01 =
 "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>The Willets Point redevelopment is a test of New York City's commitment to equitable and sustainable growth. Will it be a model for responsible urban renewal, or will it become anotherchapter in the city's long history of environmental neglect?</h1>";
@@ -448,6 +547,19 @@ var config = {
       onChapterEnter: [],
       onChapterExit: [],
     },
+
+    {
+      id: "Chapterbeforeinter",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapteriterviewbefore,
+      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: []
+    },
     
     {
       id: "interview",
@@ -480,6 +592,42 @@ var config = {
       onChapterExit: [
         { layer: "flushingclinicpoint", opacity: 0, duration: 300 }
       ],
+    },
+    {
+      id: "Chapterbafterinter",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapterbanner,
+      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: []
+    },
+    {
+      id: "Chapterbafterinter",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapterbanner2,
+      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: []
+    },
+    {
+      id: "Chapterbafterinter",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapterbanner3,
+      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: []
     },
     {
       id: "chapter15_0",
@@ -554,8 +702,30 @@ var config = {
         { layer: "after29metal-label", opacity: 0, duration: 300 }
       ]
     },
-    
-    
+    {
+      id: "Chapterbafterinter",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapterbannerafter,
+      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: []
+    },
+    {
+      id: "Chapterbafterinter",
+      alignment: "full",
+      hidden: false,
+      chapterDiv: divChapterafterafter,
+      location: { center: [-73.7, 40.725], zoom: 10, pitch: 0, bearing: 0 },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "",
+      onChapterEnter: [],
+      onChapterExit: []
+    },
     {
       id: "blackout",
       alignment: "full",
