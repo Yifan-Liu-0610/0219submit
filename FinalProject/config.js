@@ -167,8 +167,8 @@ let divChapter12 =
     
     <div style="width: 100%;">
       <h3 style="font-size: 1.8em; margin-top: 0.5em; margin-bottom: 0.4em; text-align: left; text-transform: uppercase;">Deeper Soil, Less Contamination</h3>
-      <p>Green "x"  detected minimum</p>
-      <p>Red "x" detected maximum </p>
+      <p>Green "x"  detected minimum value</p>
+      <p>Red "x" detected maximum value</p>
       <img src="./PIC/beforechart.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
       <p>Most contamination is concentrated in shallow soils (0-5 feet)</p>
       <p>Across all three groups (VOCs, SVOCs, Metals), the majority of red and green "x" marks are clustered at or near the surface.</p>
@@ -183,7 +183,7 @@ let divChapter12 =
   </div>
 `;
 
-let divChapter13_1 = `
+divChapter13_1 = `
   <div style="max-width: 900px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
     
     <div style="width: 100%;">
@@ -193,9 +193,24 @@ let divChapter13_1 = `
       <p>RURR applies to residential sites with restrictions—such as engineered barriers or land-use controls. It's less strict than full residential standards, but more protective than commercial or industrial ones. Commonly used in brownfield projects like Willets Point, where housing is allowed but with environmental safeguards.</p>
       
       <img src="./PIC/before1-1.png" style="max-width: 100%; height: auto; box-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
-      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;"><a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2022-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)
+      <p class="imageCredit" style="text-align: left; margin-top: 0.5em;">
+        <a href="https://extapps.dec.ny.gov/data/DecDocs/C241146/Report.BCP.C241146.2022-04-29.OU2%20Final%20RIR_Text.pdf" target="_blank">Remedial Investigation Report for Willets Point Phase 2 (OU-2)</a>
+      </p>
+
+      <div style="margin-top: 1.5em; text-align: left;">
+        <p><strong>VOC (Volatile Organic Compounds)</strong></p>
+        <p><strong>Vinyl Chloride</strong><br>
+        Most test points exceed the RURR standard by more than 10 times. Vinyl chloride is a known human carcinogen primarily associated with liver cancer.</p>
+
+        <p><strong>1,2-Dichloroethane</strong><br>
+        Approximately half of the data points exceed the RURR standard by 5–20 times. This compound is a probable carcinogen and may cause damage to the nervous system, liver, and kidneys.</p>
+
+        <p><strong>Benzene</strong><br>
+        Several exceedance points are 10 times or more above RURR. Benzene is a well-established carcinogen linked to leukemia. Its repeated exceedance suggests a persistent and dangerous presence in the local environment.</p>
+      </div>
+    </div>
   </div>
-`; 
+`;
 
 let divChapteriterviewbefore = 
   "<h1 style='max-width:900px; margin-left:auto; margin-right:auto; text-align:center; line-height:2;'>And what did local residents say?</h1>" +
@@ -213,8 +228,7 @@ let divChapterinterviewcorona =
   "<p>“Many long-term residents do not perceive serious pollution issues in the surrounding environment and rarely associate health problems with environmental factors.”</p>" +
   '<p style="font-size:0.9em;">“多数居住多年的人并不认为周边环境存在严重污染问题，也很少将健康问题与环境污染联系起来。”</p>' +
   "<p>“For them, surviving in a transient and unstable community like Flushing is a far more immediate and pressing concern than focusing on environmental issues.”</p>" +
-  '<p style="font-size:0.9em;">“对于居民来说，如何在法拉盛这样流动性强、居住不稳定的社区中生存下去，是更现实和紧迫的关注点。”</p>'+
-  "<p>“In poor neighborhoods, pharmacies behave differently compared to rich neighborhoods.”</p>" +
+  '<p style="font-size:0.9em;">“对于居民来说，如何在法拉盛这样流动性强、居住不稳定的社区中生存下去，是更现实和紧迫的关注点。”</p>'+ 
   "<h3> Click on the dot ▶</h3>";
 
   let divChapterbanner = 
